@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { VerifyModule } from './common/verify/verify.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
+import { ArticlesModule } from './read-manage/articles/articles.module';
+import { LabelsModule } from './read-manage/labels/labels.module';
 
 @Module({
   imports: [
@@ -13,7 +15,9 @@ import { UsersModule } from './modules/users/users.module';
     }),
     VerifyModule,
     AuthModule,
-    UsersModule
+    UsersModule,
+    ArticlesModule,
+    LabelsModule
   ],
   controllers: [AppController],
   providers: [AppService],
