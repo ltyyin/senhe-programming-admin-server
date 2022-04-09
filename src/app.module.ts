@@ -8,6 +8,7 @@ import { UsersModule } from './modules/users/users.module';
 import { ArticlesModule } from './read-manage/articles/articles.module';
 import { CategoriesModule } from './read-manage/categories/categories.module';
 import { LabelsModule } from './read-manage/labels/labels.module';
+import { CoursesModule } from './course-manage/courses/courses.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { LabelsModule } from './read-manage/labels/labels.module';
     ArticlesModule,
     CategoriesModule,
     LabelsModule,
+    CoursesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

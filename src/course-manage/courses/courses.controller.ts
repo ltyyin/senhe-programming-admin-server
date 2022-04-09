@@ -1,25 +1,25 @@
 import { Controller, Delete, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { ArticlesService } from './articles.service';
+import { CoursesService } from './courses.service';
 import { mock } from 'mockjs';
 
-@Controller('articles')
-@ApiTags('文章模块')
-export class ArticlesController {
-  constructor(private readonly articlesService: ArticlesService) {}
+@Controller('courses')
+@ApiTags('课程模块')
+export class CoursesController {
+  constructor(private readonly coursesService: CoursesService) {}
 
   @Get()
-  @ApiOperation({ summary: '获取文章列表' })
+  @ApiOperation({ summary: '获取课程列表' })
   public getListData() {
-    const total = mock('@integer(100, 200)');
-    return this.articlesService.getListData(total);
+    const total = mock('@integer(40, 100)');
+    return this.coursesService.getListData(total);
   }
 
   @Get('query')
   @ApiOperation({ summary: '查询文章列表' })
   public queryDate(@Query() odds) {
-    const total = mock('@integer(10, 30)');
-    return this.articlesService.getListData(total, odds.status, odds.isPublic);
+    const total = mock('@integer(6, 15)');
+    return this.coursesService.getListData(total, odds.isFree, odds.isAudit);
   }
 
   @Get('/audit/success')
@@ -42,10 +42,10 @@ export class ArticlesController {
 
   @Delete(':id')
   @ApiOperation({ summary: '审核不通过' })
-  public deleteArticle(@Param('id') id) {
+  public deleteCourse(@Param('id') id) {
     return {
       code: 20000,
-      message: '删除文章成功！',
+      message: '删除课程成功！',
     };
   }
 }

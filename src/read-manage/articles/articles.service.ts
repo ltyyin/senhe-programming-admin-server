@@ -3,9 +3,10 @@ import { mock } from 'mockjs';
 
 @Injectable()
 export class ArticlesService {
-  public getListData(total, status = null) {
+  public getListData(total, status = '', isPublic = '') {
     const records = `records|${total}`;
-    let statusCom = status === null ? [0, 1, 2, 3] : [parseInt(status)];
+    const statusCom = status === '' ? [0, 1, 2, 3] : [parseInt(status)];
+    const publicCom = isPublic === '' ? [0, 1] : [parseInt(isPublic)];
 
     return mock({
       code: 20000,
@@ -18,7 +19,7 @@ export class ArticlesService {
             title: '@ctitle', // 标题
             viewCount: '@integer(0, 100000)', // 浏览次数
             thumhup: '@integer(0, 100000)', // 点赞数
-            'ispublic|1': [0, 1], // 0: 不公开 1：公开
+            'isPublic|1': publicCom, // 0: 不公开 1：公开
             'status|1': statusCom, // 0: 已删除, 1:未审核，2:已审核,3: 审核未通过
             updateDate: '@datetime',
             createDate: '@datetime',
