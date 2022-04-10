@@ -9,6 +9,8 @@ import { ArticlesModule } from './read-manage/articles/articles.module';
 import { CategoriesModule } from './read-manage/categories/categories.module';
 import { LabelsModule } from './read-manage/labels/labels.module';
 import { CoursesModule } from './course-manage/courses/courses.module';
+import { MenusModule } from './system-manage/menus/menus.module';
+import { RolesModule } from './system-manage/roles/roles.module';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { CoursesModule } from './course-manage/courses/courses.module';
     CategoriesModule,
     LabelsModule,
     CoursesModule,
+    MenusModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
