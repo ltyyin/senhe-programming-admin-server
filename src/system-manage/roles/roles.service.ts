@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { mock } from 'mockjs';
+import { menuTree } from './localData/menuTree';
 
 @Injectable()
 export class RolesService {
@@ -14,8 +15,16 @@ export class RolesService {
         [records]: [
           {
             id: '@id',
-            name: '@last',
+            name: '@name',
             remark: '@ctitle',
+            'powers|1': [
+              [1, 2, 3],
+              [12, 22, 3],
+              [1, 213, 222, 3],
+              [11, 13, 21, 22],
+              [23, 211, 212],
+              [1, 213, 221, 222, 223],
+            ],
             'authority|2-5': ['@integer(20,30)'],
             createDate: '@datetime',
             updateDate: '@datetime',
@@ -40,5 +49,9 @@ export class RolesService {
         },
       ],
     });
+  }
+
+  public getPowerMenuList() {
+    return menuTree();
   }
 }

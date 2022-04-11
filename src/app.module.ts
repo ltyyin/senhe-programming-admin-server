@@ -11,6 +11,7 @@ import { LabelsModule } from './read-manage/labels/labels.module';
 import { CoursesModule } from './course-manage/courses/courses.module';
 import { MenusModule } from './system-manage/menus/menus.module';
 import { RolesModule } from './system-manage/roles/roles.module';
+import { UsersMModule } from './system-manage/users-m/users-m.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { RolesModule } from './system-manage/roles/roles.module';
     CoursesModule,
     MenusModule,
     RolesModule,
+    UsersMModule,
   ],
   controllers: [AppController],
   providers: [AppService],

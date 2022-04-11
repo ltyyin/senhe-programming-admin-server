@@ -20,7 +20,7 @@ export class RolesController {
   @Get()
   @ApiOperation({ summary: '获取角色列表' })
   public getRoleList() {
-    const total = mock('@integer(50, 100)');
+    const total = mock('@integer(10, 30)');
     return this.rolesService.getRoleList(total);
   }
 
@@ -28,7 +28,7 @@ export class RolesController {
   @ApiOperation({ summary: '查询角色列表' })
   public queryRole(@Query() odds) {
     console.log(odds);
-    const total = mock('@integer(10, 30)');
+    const total = mock('@integer(5, 10)');
     return this.rolesService.getRoleList(total);
   }
 
@@ -42,6 +42,21 @@ export class RolesController {
   @ApiOperation({ summary: '修改角色' })
   public updateRole(@Body() id) {
     return { code: 20000, message: '修改成功!' };
+  }
+
+  @Get('power/list')
+  @ApiOperation({ summary: '获取可操控的按钮列表' })
+  public getPowerMenuList() {
+    return this.rolesService.getPowerMenuList();
+  }
+
+  @Patch('modify/power')
+  @ApiOperation({ summary: '修改用户的权限' })
+  public updateRolePowers() {
+    return {
+      code: 20000,
+      message: '修改权限成功！',
+    };
   }
 
   @Delete(':id')
