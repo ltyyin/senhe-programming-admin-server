@@ -7,12 +7,13 @@ import {
   Patch,
   Query,
 } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UsersMService } from './users-m.service';
 import { mock } from 'mockjs';
 
 @Controller('users-m')
 @ApiTags('用户权限模块')
+@ApiBearerAuth()
 export class UsersMController {
   constructor(private readonly usersMService: UsersMService) {}
 

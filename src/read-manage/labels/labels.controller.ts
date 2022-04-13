@@ -8,12 +8,13 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LabelsService } from './labels.service';
 import { mock } from 'mockjs';
 
 @Controller('labels')
 @ApiTags('标签模块')
+@ApiBearerAuth()
 export class LabelsController {
   constructor(private readonly labelsService: LabelsService) {}
 

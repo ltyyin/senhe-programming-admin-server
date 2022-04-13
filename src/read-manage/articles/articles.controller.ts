@@ -1,10 +1,11 @@
 import { Controller, Delete, Get, Param, Query } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ArticlesService } from './articles.service';
 import { mock } from 'mockjs';
 
 @Controller('articles')
 @ApiTags('文章模块')
+@ApiBearerAuth()
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 

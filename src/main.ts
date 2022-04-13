@@ -17,6 +17,7 @@ async function bootstrap() {
     .setTitle('森和编程后台管理系统')
     .setDescription('后台管理系统API')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
