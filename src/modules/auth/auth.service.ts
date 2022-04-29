@@ -8,8 +8,8 @@ export class AuthService {
   public async getToken(userAccount: Object) {
     return {
       code: 20000,
-      token: this.jwtService.sign(userAccount, { expiresIn: '3m' }),
-      refreshToken: this.jwtService.sign(userAccount, { expiresIn: '5m' }),
+      token: this.jwtService.sign(userAccount, { expiresIn: '30s' }),
+      refreshToken: this.jwtService.sign(userAccount, { expiresIn: '1min' }),
     };
   }
 }

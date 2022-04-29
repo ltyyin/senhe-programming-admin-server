@@ -10,7 +10,7 @@ export class AuthMiddleware implements NestMiddleware {
     const token = req.headers.authorization;
     if (token) {
       try {
-        this.jwtService.verify(token.replace('Bearer ', ''));
+        let userInfo = this.jwtService.verify(token.replace('Bearer ', ''));
         next();
       } catch (err) {
         if (err.message == 'jwt expired') {

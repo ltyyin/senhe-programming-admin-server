@@ -1,3 +1,4 @@
+import { join } from 'path';
 import {
   MiddlewareConsumer,
   Module,
@@ -20,11 +21,16 @@ import { UsersMModule } from './system-manage/users-m/users-m.module';
 import { AuthMiddleware } from './middleware/auth.middleware';
 import { HomeModule } from './home/home.module';
 import { BannerModule } from './banner-manage/banner/banner.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client'),
+      exclude: ['/api*'],
     }),
     VerifyModule,
     AuthModule,
@@ -47,6 +53,6 @@ export class AppModule implements NestModule {
     consumer
       .apply(AuthMiddleware)
       .exclude('api/auth/login', 'api/auth/refresh/token')
-      .forRoutes('*');
+      .forRoutes('api/*');
   }
 }

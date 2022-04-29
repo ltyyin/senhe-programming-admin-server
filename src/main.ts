@@ -10,6 +10,8 @@ const HOSt = process.env.HOST || 'localhost';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors({ origin: 'http://localhost:9528' });
+
   /* 开启全局路由前缀 */
   app.setGlobalPrefix('api');
 

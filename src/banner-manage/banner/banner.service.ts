@@ -20,18 +20,8 @@ export class BannerService {
               'https://atts.w3cschool.cn/attachments/cover/cover_swiftcourse.png?t=1634192679',
               'https://atts.w3cschool.cn/attachments/cover/cover_xpjsw.png?t=1620739203',
             ],
-            authorName: '@last',
-            'isFree|1': [0, 1],
-            priceOriginal: function () {
-              return mock('@integer(350, 700)') + '.98';
-            },
-            priceDiscount: function () {
-              return mock('@integer(60, 300)') + '.98';
-            },
             url: '@url',
             remark: '@csentence(5, 15)',
-            createDate: '@datetime',
-            updateDate: '@datetime',
           },
         ],
       },
